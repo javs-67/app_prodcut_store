@@ -1,0 +1,160 @@
+/* home.component.scss */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9f2fb 100%);
+  animation: fadeIn 0.8s ease-out;
+
+  mat-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    mat-card-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-direction: column;
+      text-align: center;
+
+      mat-icon {
+        font-size: 3.5rem;
+        width: auto;
+        height: auto;
+        color: #3f51b5;
+        margin-bottom: 1rem;
+      }
+
+      span {
+        font-size: 2rem;
+        font-weight: 500;
+        color: #2c3e50;
+        line-height: 1.2;
+      }
+    }
+
+    mat-card-content {
+      p {
+        font-size: 1.2rem;
+        color: #546e7a;
+        line-height: 1.6;
+        margin: 0 auto 2rem;
+        max-width: 80%;
+      }
+    }
+
+    mat-card-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0;
+
+      button, a {
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border-radius: 50px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+
+        &:first-child {
+          padding: 0.7rem 2.5rem;
+          font-size: 1.1rem;
+          box-shadow: 0 4px 6px rgba(63, 81, 181, 0.1);
+
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(63, 81, 181, 0.2);
+          }
+        }
+
+        &:not(:first-child) {
+          padding: 0.5rem 1.5rem;
+          border: 2px solid transparent;
+
+          &:hover {
+            background: rgba(63, 81, 181, 0.08);
+            border-color: rgba(63, 81, 181, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    min-height: 70vh;
+
+    mat-card {
+      padding: 2rem 1.5rem;
+
+      mat-card-header {
+        span {
+          font-size: 1.8rem;
+        }
+      }
+
+      mat-card-content p {
+        font-size: 1.1rem;
+        max-width: 100%;
+      }
+
+      mat-card-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+
+        button, a {
+          width: 100%;
+          margin: 0;
+
+          &:first-child {
+            order: -1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    mat-card {
+      mat-card-header {
+        mat-icon {
+          font-size: 3rem;
+        }
+        span {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

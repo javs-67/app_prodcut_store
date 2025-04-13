@@ -1,0 +1,122 @@
+/* detalle-producto.component.scss */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  min-height: calc(100vh - 120px);
+
+  mat-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    h3 {
+      color: #2c3e50;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #3498db;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      color: #34495e;
+
+      strong {
+        color: #2c3e50;
+        font-weight: 500;
+        min-width: 120px;
+        display: inline-block;
+      }
+    }
+
+    .mt-3 {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      button {
+        padding: 0.5rem 1.75rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        min-width: 200px;
+
+        &:first-child {
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+          }
+        }
+
+        &:last-child {
+          border-width: 2px;
+
+          &:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Animación de entrada */
+:host {
+  display: block;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+
+    mat-card {
+      padding: 1.5rem;
+
+      p {
+        font-size: 1rem;
+
+        strong {
+          min-width: 90px;
+        }
+      }
+
+      .mt-3 {
+        flex-direction: column;
+        align-items: center;
+
+        button {
+          width: 100%;
+          max-width: 280px;
+        }
+      }
+    }
+  }
+}

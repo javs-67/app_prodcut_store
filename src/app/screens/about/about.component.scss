@@ -1,0 +1,154 @@
+/* acerca-de.component.scss */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  min-height: calc(100vh - 120px);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+
+  mat-card {
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: white;
+
+    mat-card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+
+      mat-icon {
+        color: #3498db;
+        font-size: 2rem;
+        width: auto;
+        height: auto;
+      }
+
+      span {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #2c3e50;
+      }
+    }
+
+    mat-card-content {
+      p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #495057;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    mat-accordion {
+      .mat-expansion-panel {
+        margin-bottom: 0.75rem;
+        border-radius: 8px !important;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e9ecef;
+
+        &-header {
+          padding: 1rem 1.5rem;
+          background-color: #f8f9fa;
+
+          &[aria-disabled='true'] {
+            background-color: #f8f9fa !important;
+          }
+
+          mat-panel-title {
+            font-weight: 500;
+            color: #2c3e50;
+          }
+        }
+
+        &-content {
+          p, ul {
+            padding: 1rem;
+            margin: 0;
+            font-size: 1rem;
+            color: #495057;
+            line-height: 1.6;
+          }
+
+          ul {
+            padding-left: 2rem;
+
+            li {
+              margin-bottom: 0.5rem;
+              position: relative;
+
+              &::before {
+                content: "•";
+                color: #3498db;
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .mt-3 {
+      margin-top: 2rem;
+      text-align: center;
+
+      button {
+        padding: 0.5rem 2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        color: #3498db;
+
+        &:hover {
+          background-color: rgba(52, 152, 219, 0.1);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+/* Animación de entrada */
+:host {
+  display: block;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+
+    mat-card {
+      padding: 1.5rem;
+
+      mat-card-header {
+        span {
+          font-size: 1.3rem;
+        }
+      }
+
+      mat-card-content p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
